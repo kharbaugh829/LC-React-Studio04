@@ -51,33 +51,36 @@ const [userInput, setUserInput] = useState({
         e.preventDefault();
         let desc = e.target.value;
         // TODO: set the new value in state
-        // setUserInput((prevState) => {
-        //     return{...prevState, inputFoodDescription: e.target.value};
-        // });
-        // props.updateFood(amount);
+        setUserInput((prevState) => {
+            return{...prevState, inputFoodDescription: e.target.value};
+        });
+        props.updateFood(desc);
     }
     const handleFoodCalChange = e => {
         e.preventDefault();
         let amount = Number(e.target.value);
         // TODO: set the new value in state
-        // setUserInput((prevState) => {
-        //     return{...prevState, inputFoodCalories: e.target.value};
-        // });
-        // props.updateFood(amount);
+        setUserInput((prevState) => {
+            return{...prevState, inputFoodCalories: e.target.value};
+        });
+        props.updateFood(amount);
     }
     const handleSubmitFood = e => {
         e.preventDefault();
         let newFoodEntry = {
-            id: uuid(),
+            id: uuid(), 
+            desc: handleFoodDescChange,
+            cal: handleFoodCalChange,
             // TODO: Add desc & cal properties with values from state
             
         }
         // TODO: use prevState to add the new entry to the food list (once you've created it later)
         
         // TODO: call the update handler via props and pass in the calories
-        
+        props.updateFood(cal);
         // TODO: reset the food desc and cal input values to an empty string
-        
+        setUserInput(desc) = '';
+        setUserInput(cal) = '';
     }
 
     // Exercise input handlers

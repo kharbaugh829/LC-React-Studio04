@@ -32,16 +32,16 @@ function App() {
          });
 
     };
-    const handleUpdateFood = (amount) => {
+    const handleUpdateFood = (amount, desc) => {
         // You'll need to update both the food calories and the net calories here (add calories consumed). Use prevState to ensure you are adding the new amount to the existing total.
-        // setUserInput((prevState) => {
-        //     return{...prevState, enteredFoodCalories: amount};
-        //  });
-        //  setUserInput((prevState) => {
-        //     return{...prevState, enteredFoodDescription: amount};
-        //  });
+        setUserInput((prevState) => {
+            return{...prevState, enteredFood: amount};
+         });
+         setUserInput((prevState) => {
+            return{...prevState, enteredFood: desc};
+         });
     };
-    const handleUpdateExercise = (amount) => {
+    const handleUpdateExercise = (amount, desc) => {
         // You'll need to update both the food calories and the net calories here (subtract calories burned). Use prevState to ensure you are adding the new amount to the existing total. 
         // setUserInput((prevState) => {
         //     return{...prevState, enteredStepsExerciseCalories: amount};
@@ -107,7 +107,7 @@ function App() {
             
             {/* TODO: Pass the current type into the Details component */}
             {/* TODO: Pass the four update handler functions to the Details component below. Check the propTypes object at the bottom of Details.js to get the prop names, then look just below the state variables in this file to get the names of the handler functions. */}
-            <Details type = {type} updateSteps = {handleUpdateSteps} updateWater = {handleUpdateWater} />
+            <Details type = {type} updateSteps = {handleUpdateSteps} updateWater = {handleUpdateWater} updateFood = {handleUpdateFood} updateExercise = {handleUpdateExercise}/>
             
         </div>
     );
