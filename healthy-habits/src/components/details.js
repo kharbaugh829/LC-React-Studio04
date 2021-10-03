@@ -57,7 +57,9 @@ const [exerciseList, setExerciseList] = useState([]);
     const handleSubmitFood = e => {
         e.preventDefault();
         let newFoodEntry = {
-            id: uuid(),
+            id: uuid(), 
+            desc: handleFoodDescChange,
+            cal: handleFoodCalChange,
             // TODO: Add desc & cal properties with values from state
             desc: inputFoodDescription,
             cal: inputFoodCalories
