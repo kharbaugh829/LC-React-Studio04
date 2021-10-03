@@ -43,12 +43,12 @@ function App() {
   };
   const handleUpdateExercise = (amount) => {
     // You'll need to update both the food calories and the net calories here (subtract calories burned). Use prevState to ensure you are adding the new amount to the existing total.
-    // setUserInput((prevState) => {
-    //     return{...prevState, enteredStepsExerciseCalories: amount};
-    //  });
-    //  setUserInput((prevState) => {
-    //     return{...prevState, enteredExerciseDescription: amount};
-    //  });
+    setUserInput((prevState) => {
+    return {
+        ...prevState,
+        enteredFoodCalories: prevState.enteredExerciseCalories + amount,
+        enteredNet: prevState.enteredNet - amount,
+      }});
   };
 
   // TODO: Change the current type of details to be displayed.
